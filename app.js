@@ -6,6 +6,7 @@ import {
   leerInput,
   listadoTareasBorrar,
   confirmar,
+  mostrarListadoChecklist,
 } from "./helpers/inquirer.js";
 import { Tareas } from "./models/tareas.js";
 
@@ -40,6 +41,11 @@ const main = async () => {
         tareas.listarPendientesCompletadas(false);
 
         break;
+      case "5": //comple,pend
+        const ids = await mostrarListadoChecklist(tareas.listadoArr);
+        tareas.toggleCompletadas(ids);
+
+        break;
       case "6": //borrar
         const id = await listadoTareasBorrar(tareas.listadoArr);
         if (id !== 0) {
@@ -49,6 +55,7 @@ const main = async () => {
             console.log("Borrado");
           }
         }
+
         break;
     }
 

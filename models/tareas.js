@@ -11,6 +11,7 @@ class Tareas {
       const tarea = this._listado[key];
       listado.push(tarea);
     });
+
     return listado;
   }
 
@@ -56,14 +57,14 @@ class Tareas {
         if (completadoEn) {
           contador += 1;
           console.log(
-            `${(contador + ".").green}. ${desc} :: ${completadoEn.green}`
+            `${(contador + ".").green} ${desc} :: ${completadoEn.green}`
           );
         }
       } else {
         // mostrar pendientes
         if (!completadoEn) {
           contador += 1;
-          console.log(`${(contador + ".").green}. ${desc} :: ${estado}`);
+          console.log(`${(contador + ".").green} ${desc} :: ${estado}`);
         }
       }
     });
